@@ -24,7 +24,7 @@ Sistema Kanban desenvolvido durante mentoria profissional para acompanhamento de
 5. Para importar tarefas do mentor, clique em "Importar Tarefas" e cole o JSON recebido.
 
 ## Captura de tela
-*(adicione uma imagem do sistema funcionando aqui – veja instruções abaixo)*
+<img width="1579" height="874" alt="image" src="https://github.com/user-attachments/assets/43afe39d-2f8e-4544-880a-e57d12517477" />
 
 ## Exemplo de tarefas iniciais
 O sistema já vem com algumas tarefas de exemplo, mas você pode editá-las livremente.
