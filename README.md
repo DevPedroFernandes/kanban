@@ -34,4 +34,3 @@ Este projeto está sob a licença MIT. Sinta-se à vontade para usar e modificar
 
 ---
 
-**Desenvolvido durante mentoria com [Alex](https://www.linkedin.com/in/pedrofernandes-21a5892aa)** – 2026
