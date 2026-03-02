@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Tutorial · Mentoria</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1><i class="fas fa-tasks"></i> Kanban Tutorial</h1>
+                <p class="subhead">Aprenda a usar arrastando os cards</p>
+            </div>
+            <div class="stats">
+                <div class="stat-card">
+                    <h3 id="total-tasks">0</h3>
+                    <p>Total</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="completed-tasks">0</h3>
+                    <p>Concluídas</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="progress-percent">0%</h3>
+                    <p>Progresso</p>
+                </div>
+            </div>
+            <button class="export-btn" id="exportBtn">
+                <i class="fas fa-download"></i> Exportar JSON
+            </button>
+        </header>
+
+        <div class="kanban">
+            <!-- Coluna To Do -->
+            <div class="column todo" data-status="todo">
+                <div class="column-header">
+                    <div class="column-title"><i class="fas fa-list"></i> A Fazer</div>
+                    <div class="task-count" id="todo-count">0</div>
+                </div>
+                <div class="tasks" id="todo-tasks"></div>
+                <div class="add-task" data-status="todo"><i class="fas fa-plus"></i> Adicionar tarefa</div>
+            </div>
+            <!-- Coluna Doing -->
+            <div class="column doing" data-status="doing">
+                <div class="column-header">
+                    <div class="column-title"><i class="fas fa-spinner"></i> Em Progresso</div>
+                    <div class="task-count" id="doing-count">0</div>
+                </div>
+                <div class="tasks" id="doing-tasks"></div>
+                <div class="add-task" data-status="doing"><i class="fas fa-plus"></i> Adicionar tarefa</div>
+            </div>
+            <!-- Coluna Done -->
+            <div class="column done" data-status="done">
+                <div class="column-header">
+                    <div class="column-title"><i class="fas fa-check-circle"></i> Concluído</div>
+                    <div class="task-count" id="done-count">0</div>
+                </div>
+                <div class="tasks" id="done-tasks"></div>
+                <div class="add-task" data-status="done"><i class="fas fa-plus"></i> Adicionar tarefa</div>
+            </div>
+            <!-- Coluna Backlog -->
+            <div class="column backlog" data-status="backlog">
+                <div class="column-header">
+                    <div class="column-title"><i class="fas fa-inbox"></i> Backlog</div>
+                    <div class="task-count" id="backlog-count">0</div>
+                </div>
+                <div class="tasks" id="backlog-tasks"></div>
+                <div class="add-task" data-status="backlog"><i class="fas fa-plus"></i> Adicionar tarefa</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>🚀 Tutorial: Arraste os cards para movê-los entre colunas. Clique nos ícones para editar ou excluir.</p>
+        </footer>
+    </div>
+
+    <!-- Modal para adicionar/editar tarefa -->
+    <div class="modal" id="taskModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Adicionar Tarefa</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <form id="taskForm">
+                <input type="hidden" id="taskId">
+                <div class="form-group">
+                    <label for="taskTitle">Título</label>
+                    <input type="text" id="taskTitle" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="taskDescription">Descrição</label>
+                    <textarea id="taskDescription" class="form-control" rows="2"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskCategory">Categoria</label>
+                        <select id="taskCategory" class="form-control">
+                            <option value="tutorial">📘 Tutorial</option>
+                            <option value="tarefa">📌 Tarefa</option>
+                            <option value="ideia">💡 Ideia</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskPriority">Prioridade</label>
+                        <select id="taskPriority" class="form-control">
+                            <option value="high">Alta</option>
+                            <option value="medium">Média</option>
+                            <option value="low">Baixa</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskStatus">Status</label>
+                        <select id="taskStatus" class="form-control">
+                            <option value="todo">A Fazer</option>
+                            <option value="doing">Em Progresso</option>
+                            <option value="done">Concluído</option>
+                            <option value="backlog">Backlog</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
